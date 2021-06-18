@@ -2,7 +2,7 @@ const { Client, MessageAttachment } = require("discord.js");
 const client = new Client();
 const { parse } = require("discord-command-parser");
 const commands = ["hiscores", "clues", "bosses", "compare"];
-const { showHelp } = require("./utils");
+const utils = require("./utils");
 const osrs = require("./osrs");
 const Canvas = require("canvas");
 
@@ -27,7 +27,7 @@ client.on("message", async (message) => {
   if (!parsed.success) return;
 
   if (parsed.command === "commands") {
-    showHelp(commands, message);
+    utils.showHelp(commands, message);
   }
 
   if (parsed.command === "hiscores") {

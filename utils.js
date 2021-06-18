@@ -27,13 +27,11 @@ const colors = {
 };
 
 function showHelp(commands, message) {
-  let msg = "\n";
-  commands.forEach((command) => {
-    msg += "**!" + command + "**\n";
-  });
-  msg +=
-    "***Type the command name to get more info for the specific command.***";
-  message.channel.send(msg);
+  message.channel.send(
+    `\`\`\`fix\n!${commands.join(
+      "\n!"
+    )}\`\`\`\n***Type the command name to get more info for the specific command.***`
+  );
 }
 
 function createEmbed(title, description, color, fields, isLoading) {
